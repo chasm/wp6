@@ -34,6 +34,7 @@ export default function (router) {
     router.get("/", home)
     router.post("/login", login)
     router.get("/logout", logout)
+    router.get("/:page", home)
 
     yield next
   }

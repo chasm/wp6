@@ -1,16 +1,16 @@
 require("babel/register")
 
-const app = require("koa")()
-const koaBody = require("koa-better-body")
-const hbs = require("koa-hbs")
-const logger = require("koa-logger")
-const koaMount = require("koa-mount")
-const passport = require("koa-passport")
+const app       = require("koa")()
+const koaBody   = require("koa-better-body")
+const hbs       = require("koa-hbs")
+const logger    = require("koa-logger")
+const koaMount  = require("koa-mount")
+const passport  = require("koa-passport")
 const KoaRouter = require("koa-router")
-const session = require("koa-session")
-const koaStatic = require("koa-static")
-const path = require("path")
-const bcrypt = require("bcryptjs")
+const session   = require("koa-session")
+const serve     = require("koa-static")
+const path      = require("path")
+const bcrypt    = require("bcryptjs")
 
 const r = require("rethinkdbdash")()
 
@@ -68,6 +68,8 @@ passport.use(new LocalStrategy(function (username, password, done) {
 
 app.use(passport.initialize())
 app.use(passport.session())
+
+app.use(koaMount("/assets/", serve(path.join(__dirname, "./build/"))))
 
 app.use(require("./routes")(router))
 

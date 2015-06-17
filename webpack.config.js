@@ -10,11 +10,11 @@ const ROOT_PATH = path.resolve(__dirname)
 const common = {
   entry: [ path.join(ROOT_PATH, "app/main.jsx") ],
   resolve: {
-    extensions: [ "", ".js", ".jsx" ],
+    extensions: [ "", ".js", ".jsx" ]
   },
   output: {
     path: path.resolve(ROOT_PATH, "build"),
-    filename: "bundle.js",
+    filename: "bundle.js"
   },
   lessLoader: {
     lessPlugins: [
@@ -32,9 +32,9 @@ if (TARGET === "build") {
         {
           test: /\.jsx?$/,
           loader: "babel?stage=0",
-          include: path.join(ROOT_PATH, "app"),
+          include: path.join(ROOT_PATH, "app")
         },
-        { test: /\.css$/, loader: "style!css", },
+        { test: /\.css$/, loader: "style!css" },
         { test: /\.less$/, loader: "style!css!less" },
         { test: /\.json$/, loader: "json-loader" },
         { test: /\.json5$/, loader: "json5-loader" },
@@ -61,7 +61,7 @@ if (TARGET === "build") {
       new ExtractTextPlugin("styles.css"),
       new webpack.DefinePlugin({
         "process.env": {
-          "NODE_ENV": JSON.stringify("production"),
+          "NODE_ENV": JSON.stringify("production")
         }
       }),
       new webpack.optimize.UglifyJsPlugin({
@@ -81,11 +81,11 @@ if (TARGET === "dev") {
         {
           test: /\.jsx?$/,
           loader: "eslint-loader",
-          include: path.join(ROOT_PATH, "app"),
+          include: path.join(ROOT_PATH, "app")
         }
       ],
       loaders: [
-        { test: /\.css$/, loader: "style!css", },
+        { test: /\.css$/, loader: "style!css" },
         { test: /\.less$/, loader: "style!css!less" },
         { test: /\.jsx?$/, loader: "react-hot!babel?stage=0", include: path.join(ROOT_PATH, "app") },
         { test: /\.json$/, loader: "json-loader" },
