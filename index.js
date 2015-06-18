@@ -14,6 +14,7 @@ const bcrypt    = require("bcryptjs")
 
 const r = require("rethinkdbdash")()
 
+let api    = new KoaRouter()
 let router = new KoaRouter()
 
 app.use(koaBody({
@@ -71,8 +72,10 @@ app.use(passport.session())
 
 app.use(koaMount("/assets/", serve(path.join(__dirname, "./build/"))))
 
+app.use(require("./routes/books")(api))
 app.use(require("./routes")(router))
 
+app.use(koaMount("/api", api.middleware()))
 app.use(koaMount("/", router.middleware()))
 
 app.listen(3000, function () {
