@@ -73,6 +73,7 @@ app.use(passport.session())
 app.use(koaMount("/assets/", serve(path.join(__dirname, "./build/"))))
 
 app.use(require("./routes/books")(api))
+app.use(require("./routes/users")(router))
 app.use(require("./routes")(router))
 
 app.use(koaMount("/api", api.middleware()))

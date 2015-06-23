@@ -68,7 +68,7 @@ class SignUpPage extends Component {
             throw err
           }
 
-          this.context.router.navigate("/")
+          this.context.router.transitionTo("home")
         })
     }
   }
@@ -117,6 +117,10 @@ class SignUpPage extends Component {
       </Row>
     )
   }
+}
+
+SignUpPage.contextTypes = {
+  router: React.PropTypes.func
 }
 
 export default SignUpPage
