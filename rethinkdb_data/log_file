@@ -120,21 +120,89 @@
 2015-06-17T21:26:22.912585000 0.051117s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
 2015-06-17T21:26:22.912595000 0.051127s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
 2015-06-17T21:26:23.354540000 0.493072s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
-2015-06-18T11:34:09.701245000 27191.836469s notice: Server got SIGINT from pid 85832, uid 501; shutting down...
-2015-06-18T11:34:09.701509000 27191.836733s notice: Shutting down client connections...
-2015-06-18T11:34:09.701679000 27191.836904s notice: All client connections closed.
-2015-06-18T11:34:09.701689000 27191.836913s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
-2015-06-18T11:34:09.722808000 27191.858032s notice: Storage engine shut down.
-2015-06-18T23:24:15.557758000 0.006580s notice: Running rethinkdb 2.0.2 (CLANG 6.1.0 (clang-602.0.53))...
-2015-06-18T23:24:15.568136000 0.016955s notice: Running on Darwin 14.3.0 x86_64
-2015-06-18T23:24:15.568332000 0.017150s notice: Loading data from directory /Users/aries/Workspace/wp6/rethinkdb_data
-2015-06-18T23:24:15.656177000 0.104995s info: Automatically using cache size of 100 MB
-2015-06-18T23:24:15.656190000 0.105007s warn: Cache size does not leave much memory for server and query overhead (available memory: 1052 MB).
-2015-06-18T23:24:15.656196000 0.105013s warn: Cache size is very low and may impact performance.
-2015-06-18T23:24:15.658511000 0.107328s notice: Listening for intracluster connections on port 29015
-2015-06-18T23:24:15.665721000 0.114539s notice: Listening for client driver connections on port 28015
-2015-06-18T23:24:15.665880000 0.114698s notice: Listening for administrative HTTP connections on port 8080
-2015-06-18T23:24:15.665887000 0.114704s notice: Listening on addresses: 127.0.0.1, ::1
-2015-06-18T23:24:15.665892000 0.114709s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
-2015-06-18T23:24:15.665896000 0.114714s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
-2015-06-18T23:24:16.405890000 0.854632s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-17T11:40:31.282391000 0.728442s notice: Recursively removing directory /Users/Kehinde/Documents/wp6/rethinkdb_data/tmp
+2015-06-17T11:40:31.285450000 0.731505s notice: Running rethinkdb 2.0.2 (CLANG 6.1.0 (clang-602.0.53))...
+2015-06-17T11:40:31.312780000 0.758832s notice: Running on Darwin 14.0.0 x86_64
+2015-06-17T11:40:31.312834000 0.758883s notice: Loading data from directory /Users/Kehinde/Documents/wp6/rethinkdb_data
+2015-06-17T11:40:31.424982000 0.871033s info: Automatically using cache size of 100 MB
+2015-06-17T11:40:31.424993000 0.871043s warn: Cache size does not leave much memory for server and query overhead (available memory: 485 MB).
+2015-06-17T11:40:31.427618000 0.873669s warn: Cache size is very low and may impact performance.
+2015-06-17T11:40:31.433740000 0.879790s notice: Listening for intracluster connections on port 29015
+2015-06-17T11:40:31.438361000 0.884412s notice: Listening for client driver connections on port 28015
+2015-06-17T11:40:31.438510000 0.884560s notice: Listening for administrative HTTP connections on port 8080
+2015-06-17T11:40:31.438515000 0.884565s notice: Listening on addresses: 127.0.0.1, ::1
+2015-06-17T11:40:31.438519000 0.884569s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-06-17T11:40:31.438523000 0.884573s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
+2015-06-17T11:40:32.419471000 1.865445s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-17T14:31:47.268071000 10278.669903s notice: Server got SIGINT from pid 316, uid 501; shutting down...
+2015-06-17T14:31:47.268219000 10278.670051s notice: Shutting down client connections...
+2015-06-17T14:31:47.271336000 10278.673168s notice: All client connections closed.
+2015-06-17T14:31:47.271348000 10278.673180s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-06-17T14:31:47.296349000 10278.698181s notice: Storage engine shut down.
+2015-06-17T14:31:51.314454000 0.541046s notice: Running rethinkdb 2.0.2 (CLANG 6.1.0 (clang-602.0.53))...
+2015-06-17T14:31:51.355206000 0.581795s notice: Running on Darwin 14.0.0 x86_64
+2015-06-17T14:31:51.355255000 0.581842s notice: Loading data from directory /Users/Kehinde/Documents/wp6/rethinkdb_data
+2015-06-17T14:31:51.419739000 0.646326s info: Automatically using cache size of 100 MB
+2015-06-17T14:31:51.419749000 0.646336s warn: Cache size does not leave much memory for server and query overhead (available memory: 462 MB).
+2015-06-17T14:31:51.419755000 0.646341s warn: Cache size is very low and may impact performance.
+2015-06-17T14:31:51.420369000 0.646955s notice: Listening for intracluster connections on port 29015
+2015-06-17T14:31:51.422972000 0.649560s notice: Listening for client driver connections on port 28015
+2015-06-17T14:31:51.423616000 0.650203s notice: Listening for administrative HTTP connections on port 8080
+2015-06-17T14:31:51.423620000 0.650207s notice: Listening on addresses: 127.0.0.1, ::1
+2015-06-17T14:31:51.423626000 0.650213s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-06-17T14:31:51.423635000 0.650221s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
+2015-06-17T14:31:54.363423000 3.589865s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-17T14:42:58.373627000 0.571825s notice: Running rethinkdb 2.0.2 (CLANG 6.1.0 (clang-602.0.53))...
+2015-06-17T14:42:58.398566000 0.596761s notice: Running on Darwin 14.0.0 x86_64
+2015-06-17T14:42:58.398606000 0.596798s notice: Loading data from directory /Users/Kehinde/Documents/practice-react/rethinkdb_data
+2015-06-17T14:42:58.472685000 0.670877s info: Automatically using cache size of 100 MB
+2015-06-17T14:42:58.472693000 0.670886s warn: Cache size does not leave much memory for server and query overhead (available memory: 630 MB).
+2015-06-17T14:42:58.472698000 0.670890s warn: Cache size is very low and may impact performance.
+2015-06-17T14:42:58.473440000 0.671632s notice: Listening for intracluster connections on port 29015
+2015-06-17T14:42:58.475801000 0.673994s notice: Listening for client driver connections on port 28015
+2015-06-17T14:42:58.475931000 0.674124s notice: Listening for administrative HTTP connections on port 8080
+2015-06-17T14:42:58.475933000 0.674126s notice: Listening on addresses: 127.0.0.1, ::1
+2015-06-17T14:42:58.475937000 0.674130s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-06-17T14:42:58.475938000 0.674131s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
+2015-06-17T14:42:59.435465000 1.633585s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-18T10:51:10.719566000 24983.875724s notice: Server got SIGINT from pid 316, uid 501; shutting down...
+2015-06-18T10:51:10.720353000 24983.876509s notice: Shutting down client connections...
+2015-06-18T10:51:10.725553000 24983.881709s notice: All client connections closed.
+2015-06-18T10:51:10.725570000 24983.881725s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-06-18T10:51:10.773215000 24983.929371s notice: Storage engine shut down.
+2015-06-18T10:51:12.662281000 0.574689s notice: Running rethinkdb 2.0.2 (CLANG 6.1.0 (clang-602.0.53))...
+2015-06-18T10:51:12.675436000 0.587839s notice: Running on Darwin 14.0.0 x86_64
+2015-06-18T10:51:12.675483000 0.587884s notice: Loading data from directory /Users/Kehinde/Documents/practice-react/rethinkdb_data
+2015-06-18T10:51:12.731164000 0.643566s info: Automatically using cache size of 100 MB
+2015-06-18T10:51:12.731172000 0.643574s warn: Cache size does not leave much memory for server and query overhead (available memory: 621 MB).
+2015-06-18T10:51:12.731177000 0.643578s warn: Cache size is very low and may impact performance.
+2015-06-18T10:51:12.731877000 0.644278s notice: Listening for intracluster connections on port 29015
+2015-06-18T10:51:12.734733000 0.647135s notice: Listening for client driver connections on port 28015
+2015-06-18T10:51:12.734998000 0.647421s notice: Listening for administrative HTTP connections on port 8080
+2015-06-18T10:51:12.735031000 0.647432s notice: Listening on addresses: 127.0.0.1, ::1
+2015-06-18T10:51:12.735032000 0.647433s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-06-18T10:51:12.735035000 0.647436s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
+2015-06-18T10:51:13.298409000 1.210736s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-18T10:51:15.157704000 3.069959s notice: Server got SIGINT from pid 316, uid 501; shutting down...
+2015-06-18T10:51:15.157849000 3.070103s notice: Shutting down client connections...
+2015-06-18T10:51:15.161776000 3.074031s notice: All client connections closed.
+2015-06-18T10:51:15.161791000 3.074046s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-06-18T10:51:15.175305000 3.087559s notice: Storage engine shut down.
+2015-06-18T10:51:18.016595000 0.003674s notice: Running rethinkdb 2.0.2 (CLANG 6.1.0 (clang-602.0.53))...
+2015-06-18T10:51:18.019793000 0.006869s notice: Running on Darwin 14.0.0 x86_64
+2015-06-18T10:51:18.019836000 0.006911s notice: Loading data from directory /Users/Kehinde/Documents/practice-react/rethinkdb_data
+2015-06-18T10:51:18.087658000 0.074733s info: Automatically using cache size of 100 MB
+2015-06-18T10:51:18.087667000 0.074742s warn: Cache size does not leave much memory for server and query overhead (available memory: 616 MB).
+2015-06-18T10:51:18.087673000 0.074748s warn: Cache size is very low and may impact performance.
+2015-06-18T10:51:18.088355000 0.075430s notice: Listening for intracluster connections on port 29015
+2015-06-18T10:51:18.090021000 0.077097s notice: Listening for client driver connections on port 28015
+2015-06-18T10:51:18.090248000 0.077323s notice: Listening for administrative HTTP connections on port 8080
+2015-06-18T10:51:18.090250000 0.077324s notice: Listening on addresses: 127.0.0.1, ::1
+2015-06-18T10:51:18.090253000 0.077327s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-06-18T10:51:18.090253001 0.077328s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
+2015-06-18T10:51:18.512074000 0.499149s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-18T16:30:25.396171000 20346.140611s notice: Server got SIGINT from pid 316, uid 501; shutting down...
+2015-06-18T16:30:25.399048000 20346.143488s notice: Shutting down client connections...
+2015-06-18T16:30:25.401311000 20346.145749s notice: All client connections closed.
+2015-06-18T16:30:25.401321000 20346.145759s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-06-18T16:30:25.443929000 20346.188370s notice: Storage engine shut down.

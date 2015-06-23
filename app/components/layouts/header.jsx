@@ -19,6 +19,7 @@ class Header extends Component {
         <NavItemLink to="home" eventKey={1} href="#">Home</NavItemLink>
         <NavItemLink to="about" eventKey={2} href="#">About</NavItemLink>
         <NavItemLink to="books" eventKey={3} href="#">Books</NavItemLink>
+        <NavItemLink to="signup" eventKey={4} href="#">Sign Up</NavItemLink>
       </Nav>
     </Navbar>
   }
