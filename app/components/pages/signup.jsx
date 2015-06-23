@@ -6,6 +6,8 @@ import superagent from "superagent"
 
 import { Button, Col, Grid, Row } from "react-bootstrap"
 
+import { v4 } from "slugid"
+
 let Form = t.form.Form
 
 let password = t.subtype(t.Str, (pwd) => {
@@ -60,7 +62,7 @@ class SignUpPage extends Component {
       })
 
       superagent
-        .post("/signup")
+        .put(`/signup/${v4()}`)
         .send(value)
         .type("application/json")
         .end((err, res) => {

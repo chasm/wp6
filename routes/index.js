@@ -4,7 +4,7 @@ let home = function *() {
   if (this.isAuthenticated()) {
     yield this.render("index", { name: this.req.user.name })
   } else {
-    yield this.render("login")
+    yield this.render("index")
   }
 }
 
