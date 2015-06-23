@@ -4,14 +4,12 @@ import t from "tcomb-form"
 
 import superagent from "superagent"
 
-import { Button } from "react-bootstrap"
+import { Button, Col, Grid, Row } from "react-bootstrap"
 
 let Form = t.form.Form
 
 let password = t.subtype(t.Str, (pwd) => {
-  let r = /^[a-zA-Z]{5,}$/
-
-  return r.test(pwd)
+  return pwd.length > 4
 })
 
 let email = t.subtype(t.Str, (e) => {
@@ -21,7 +19,7 @@ let email = t.subtype(t.Str, (e) => {
 })
 
 let fullname = t.subtype(t.Str, (name) => {
-  let r = /([A-Za-z]{2,})([\s])([A-Za-z]{2,})/
+  let r = /^([A-Z]{2,})([\s]([A-Z]{2,})){1,}$/i
 
   return r.test(name)
 })
@@ -31,7 +29,8 @@ let User = t.struct({
   username: t.Str,
   email: email,
   password: password,
-  locale: t.maybe(t.Str)
+  locale: t.maybe(t.Str),
+  nobot: t.maybe(t.Str)
 })
 
 class SignUpPage extends Component {
@@ -40,30 +39,46 @@ class SignUpPage extends Component {
     super(props)
 
     this.state = {
-      fullname: null,
-      username: null,
-      email: null,
-      password: null,
-      locale: null
+      signup: {
+        fullname: "Joe Mama",
+        username: "JM",
+        email: "joe@mama.com",
+        password: "xxxxxx",
+        locale: "Here"
+      }
     }
   }
 
   save (event) {
     let value = this.refs.form.getValue()
 
-    if (value) {
-      console.log(value)
+    console.log("value", value)
+
+    if (value && !value.nobot) {
+      this.setState({
+        signup: value
+      })
+
+      superagent
+        .post("/signup")
+        .send(value)
+        .type("application/json")
+        .end((err, res) => {
+          if (err) {
+            throw err
+          }
+
+          this.context.router.navigate("/")
+        })
     }
   }
 
-
   render () {
-
     let options = {
       fields: {
         fullname: {
-         label: "Fullname",
-         error: "You must enter full name."
+          label: "Fullname",
+          error: "You must enter full name."
         },
         username: {
           label: "Username",
@@ -75,28 +90,31 @@ class SignUpPage extends Component {
         },
         password: {
           label: "Password",
-          type: "Password",
-          error: "Password should be longer than 4 characters."
+          error: "Password should be longer than 4 characters.",
+          type: "password"
         },
         locale: {
-          placeholder: "Where do you stay..."
+          attrs: {
+            placeholder: "Where do you stay..."
+          }
+        },
+        nobot: {
+          label: "Are you real?",
+          attrs: {
+            placeholder: "Leave me blank to prove you understand"
+          }
         }
-      }
-    }
-
-    let values = {
-      fullname: this.state.fullname,
-      username: this.state.username,
-      email: this.state.email,
-      password: this.state.password,
-      locale: this.state.locale
+      },
+      legend: "Sign up for Quoth!"
     }
 
     return (
-      <div>
-        <Form ref="form" type={User} options={options} values={values} />
-        <Button bsStyle="primary" onClick={this.save.bind(this)}>Save</Button>
-      </div>
+      <Row>
+        <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
+          <Form ref="form" type={User} options={options} value={this.state.signup} />
+          <Button bsStyle="primary" onClick={this.save.bind(this)}>Sign Up</Button>
+        </Col>
+      </Row>
     )
   }
 }

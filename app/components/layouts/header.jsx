@@ -14,7 +14,7 @@ class Header extends Component {
       <MenuItemLink to="home" eventKey="2">{this.props.anotherProp}</MenuItemLink>
     </DropdownButton>
 
-    return <Navbar brand={<Link to="home">Quoth</Link>} inverse toggleNavKey={0}>
+    return <Navbar brand={<Link to="home">Quoth</Link>} toggleNavKey={0}>
       <Nav right eventKey={0}>
         <NavItemLink to="home" eventKey={1} href="#">Home</NavItemLink>
         <NavItemLink to="about" eventKey={2} href="#">About</NavItemLink>
