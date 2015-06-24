@@ -9,18 +9,22 @@ let login = function *(next) {
   yield* passport.authenticate("local", function *(err, user, info) {
     if (err) { throw err }
 
-    if (user !== false) { yield ctx.login(user) }
+    if (user !== false) {
+      yield ctx.login(user)
 
-    let out = {
-      email: user.email,
-      fullname: user.fullname,
-      id: user.id,
-      locale: user.locale,
-      username: user.username
+      let out = {
+        email: user.email,
+        fullname: user.fullname,
+        id: user.id,
+        locale: user.locale,
+        username: user.username
+      }
+
+      ctx.type = "application/json"
+      ctx.body = JSON.stringify(out)
+    } else {
+      ctx.status = 401
     }
-
-    ctx.type = "application/json"
-    ctx.body = JSON.stringify(out)
 
   }).call(this, next)
 }
