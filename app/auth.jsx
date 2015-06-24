@@ -12,10 +12,9 @@ let auth = {
 
 let requireAuth = (Comp) => {
   return class Authenticated extends Component {
-    static willTransitionTo(transition, params, query, callback) {
+    static willTransitionTo(transition) {
       if (!auth.loggedIn()) {
-        transition.redirect("login", {}, { "nextPath": transition.path })
-        callback()
+        transition.redirect("login")
       }
     }
 

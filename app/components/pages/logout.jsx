@@ -8,7 +8,7 @@ class LogoutPage extends Component {
     super(props)
   }
 
-  static willTransitionTo (transition, params, query, callback) {
+  componentWillMount () {
     superagent
       .del("/api/logout")
       .end((err, res) => {
@@ -16,8 +16,7 @@ class LogoutPage extends Component {
           console.log("Error!", err)
         } else {
           delete localStorage.user
-          transition.redirect("/")
-          callback()
+          this.context.router.transitionTo("home")
         }
       })
   }
@@ -25,6 +24,10 @@ class LogoutPage extends Component {
   render () {
     return <div>Logging out!</div>
   }
+}
+
+LogoutPage.contextTypes = {
+  router: React.PropTypes.func
 }
 
 export default LogoutPage

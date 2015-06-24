@@ -9,12 +9,22 @@ import { MenuItemLink, NavItemLink } from "react-router-bootstrap"
 class Header extends Component {
 
   render () {
+
     let authlink = localStorage.user ?
-      <NavItemLink to="logout" eventKey={4}>Log Out</NavItemLink> :
-      <NavItemLink to="login" eventKey={4}>Log In</NavItemLink>
+      <DropdownButton eventKey={3} title={"Welcome, " + JSON.parse(localStorage.user).username}>
+        <MenuItemLink to="logout" eventKey="1">Sign out</MenuItemLink>
+      </DropdownButton> :
+      <DropdownButton eventKey={3} title="Sign in or up">
+        <MenuItemLink to="login" eventKey="1">Sign in</MenuItemLink>
+        <MenuItemLink to="signup" eventKey="2">Sign up</MenuItemLink>
+      </DropdownButton>
+
+    let bookslink = localStorage.user ?
+      <NavItemLink to="books" eventKey={3}>Books</NavItemLink> :
+      undefined
 
     let dd = <DropdownButton eventKey={3} title="Dropdown">
-      <MenuItemLink to="about" eventKey="1">{this.props.profileLinkName}</MenuItemLink>
+      <MenuItemLink to="login" eventKey="1">{this.props.profileLinkName}</MenuItemLink>
       <MenuItemLink to="home" eventKey="2">{this.props.anotherProp}</MenuItemLink>
     </DropdownButton>
 
@@ -22,9 +32,8 @@ class Header extends Component {
       <Nav right eventKey={0}>
         <NavItemLink to="home" eventKey={1}>Home</NavItemLink>
         <NavItemLink to="about" eventKey={2}>About</NavItemLink>
-        <NavItemLink to="books" eventKey={3}>Books</NavItemLink>
+        {bookslink}
         {authlink}
-        <NavItemLink to="signup" eventKey={5}>Sign Up</NavItemLink>
       </Nav>
     </Navbar>
   }

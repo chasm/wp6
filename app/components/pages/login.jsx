@@ -24,6 +24,7 @@ class LoginPage extends Component {
   }
 
   handleClick (event) {
+    let ctx = this
     let value = this.refs.loginForm.getValue()
 
     superagent
@@ -36,6 +37,7 @@ class LoginPage extends Component {
           this.setState({ failed: true, email: value.email })
         } else {
           localStorage.user = res.text
+          ctx.context.router.transitionTo("home")
         }
       })
   }
@@ -63,6 +65,10 @@ class LoginPage extends Component {
       </Col>
     </Row>
   }
+}
+
+LoginPage.contextTypes = {
+  router: React.PropTypes.func
 }
 
 export default LoginPage

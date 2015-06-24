@@ -73,4 +73,8 @@ class BooksPage extends Component {
   }
 }
 
+BooksPage.contextTypes = {
+  router: React.PropTypes.func
+}
+
 export default BooksPage
