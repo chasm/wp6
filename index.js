@@ -59,7 +59,7 @@ passport.use(new LocalStrategy(function (username, password, done) {
 
     let user = rows[ 0 ]
 
-    if (bcrypt.compareSync(password, user.digest)) {
+    if (user && bcrypt.compareSync(password, user.digest)) {
       done(null, user)
     } else {
       done(null, false)
@@ -72,6 +72,7 @@ app.use(passport.session())
 
 app.use(koaMount("/assets/", serve(path.join(__dirname, "./build/"))))
 
+app.use(require("./routes/auth")(api))
 app.use(require("./routes/books")(api))
 app.use(require("./routes/users")(router))
 app.use(require("./routes")(router))

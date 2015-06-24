@@ -40,6 +40,8 @@ class SignUpPage extends Component {
   constructor (props) {
     super(props)
 
+    this.id = v4()
+
     this.state = {
       signup: {
         fullname: "Joe Mama",
@@ -62,7 +64,7 @@ class SignUpPage extends Component {
       })
 
       superagent
-        .put(`/signup/${v4()}`)
+        .put(`/signup/${this.id}`)
         .send(value)
         .type("application/json")
         .end((err, res) => {
