@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 
-import { Button, Col, Row } from "react-bootstrap"
+import { Button, Col, Row, Alert } from "react-bootstrap"
 
 import superagent from "superagent"
 
@@ -13,7 +13,14 @@ let User = t.struct({
   password: t.Str
 })
 
+let alertInstance = (
+  <Alert bsStyle='warning'>
+    <strong>Crap!</strong> Incorrect email or password.
+  </Alert>
+)
+
 class LoginPage extends Component {
+
 
   constructor (props) {
     super(props)
@@ -32,7 +39,6 @@ class LoginPage extends Component {
       .set("Accept", "application/json")
       .end((err, res) => {
         if (err) {
-          console.log("Error!", err)
           this.setState({ failed: true, email: value.email })
         } else {
           localStorage.user = res.text
@@ -42,6 +48,8 @@ class LoginPage extends Component {
   }
 
   render () {
+    let message = this.state.failed ? alertInstance : ""
+
     let options = {
       fields: {
         email: {
@@ -59,6 +67,7 @@ class LoginPage extends Component {
 
     return <Row>
       <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
+        {message}
         <Form ref="loginForm" type={User} options={options} values={this.state.user} />
         <Button bsStyle="primary" onClick={this.handleClick.bind(this)}>Sign In</Button>
       </Col>

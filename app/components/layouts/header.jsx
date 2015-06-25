@@ -12,11 +12,11 @@ class Header extends Component {
 
     let authlink = localStorage.user ?
       <DropdownButton eventKey={3} title={"Welcome, " + JSON.parse(localStorage.user).username}>
-        <MenuItemLink to="logout" eventKey="1">Sign out</MenuItemLink>
+        <MenuItemLink to="logout" eventKey="1">Sign Out</MenuItemLink>
       </DropdownButton> :
-      <DropdownButton eventKey={3} title="Sign in or up">
-        <MenuItemLink to="login" eventKey="1">Sign in</MenuItemLink>
-        <MenuItemLink to="signup" eventKey="2">Sign up</MenuItemLink>
+      <DropdownButton eventKey={3} title="Sign In or Up">
+        <MenuItemLink to="login" eventKey="1">Sign In</MenuItemLink>
+        <MenuItemLink to="signup" eventKey="2">Sign Up</MenuItemLink>
       </DropdownButton>
 
     let bookslink = localStorage.user ?
