@@ -250,3 +250,20 @@
 2015-06-24T22:09:51.738506000 0.172511s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
 2015-06-24T22:09:51.738509000 0.172514s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
 2015-06-24T22:09:52.420730000 0.854736s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-25T09:22:51.897951000 14662.274862s notice: Server got SIGINT from pid 72452, uid 501; shutting down...
+2015-06-25T09:22:51.898180000 14662.275091s notice: Shutting down client connections...
+2015-06-25T09:22:51.898330000 14662.275241s notice: All client connections closed.
+2015-06-25T09:22:51.898335000 14662.275246s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-06-25T09:22:51.915625000 14662.292536s notice: Storage engine shut down.
+2015-06-26T22:54:19.690584000 0.004512s notice: Running rethinkdb 2.0.2 (CLANG 6.1.0 (clang-602.0.53))...
+2015-06-26T22:54:19.698576000 0.012502s notice: Running on Darwin 14.3.0 x86_64
+2015-06-26T22:54:19.699076000 0.013000s notice: Loading data from directory /Users/aries/Workspace/wp6/rethinkdb_data
+2015-06-26T22:54:19.882007000 0.195932s info: Automatically using cache size of 100 MB
+2015-06-26T22:54:19.882029000 0.195953s warn: Cache size is very low and may impact performance.
+2015-06-26T22:54:19.884479000 0.198404s notice: Listening for intracluster connections on port 29015
+2015-06-26T22:54:19.894592000 0.208516s notice: Listening for client driver connections on port 28015
+2015-06-26T22:54:19.894795000 0.208719s notice: Listening for administrative HTTP connections on port 8080
+2015-06-26T22:54:19.894797000 0.208721s notice: Listening on addresses: 127.0.0.1, ::1
+2015-06-26T22:54:19.894802000 0.208726s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-06-26T22:54:19.894807000 0.208731s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
+2015-06-26T22:54:20.598510000 0.912435s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.

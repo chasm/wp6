@@ -73,6 +73,7 @@
     "koa-static": "^1.4.9",
     "lodash": "^3.9.3",
     "passport-local": "^1.0.0",
+    "postmark": "^1.0.0",
     "react": "^0.13.3",
     "react-bootstrap": "^0.23.4",
     "react-layout-pack": "^0.1.0",
