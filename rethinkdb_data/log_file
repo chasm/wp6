@@ -267,3 +267,8 @@
 2015-06-26T22:54:19.894802000 0.208726s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
 2015-06-26T22:54:19.894807000 0.208731s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
 2015-06-26T22:54:20.598510000 0.912435s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-27T01:24:49.020474000 9027.974222s notice: Server got SIGINT from pid 22457, uid 501; shutting down...
+2015-06-27T01:24:49.020645000 9027.974393s notice: Shutting down client connections...
+2015-06-27T01:24:49.037838000 9027.991586s notice: All client connections closed.
+2015-06-27T01:24:49.037852000 9027.991599s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-06-27T01:24:49.060680000 9028.014428s notice: Storage engine shut down.

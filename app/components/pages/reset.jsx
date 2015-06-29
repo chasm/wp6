@@ -11,8 +11,7 @@ import t from "tcomb-form"
 let Form = t.form.Form
 
 let User = t.struct({
-  email: t.Str,
-  password: t.Str
+  email: t.Str
 })
 
 let alertInstance = (
@@ -21,8 +20,7 @@ let alertInstance = (
   </Alert>
 )
 
-class LoginPage extends Component {
-
+class ResetPage extends Component {
 
   constructor (props) {
     super(props)
@@ -36,7 +34,7 @@ class LoginPage extends Component {
     let value = this.refs.loginForm.getValue()
 
     superagent
-      .post("/api/login")
+      .post("/reset")
       .send(value)
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -57,29 +55,24 @@ class LoginPage extends Component {
         email: {
           label: "Email address",
           error: "You must enter a valid email address."
-        },
-        password: {
-          label: "Password",
-          error: "You must enter a valid password.",
-          type: "password"
         }
       },
-      legend: "Please sign in"
+      legend: "Reset your password"
     }
 
     return <Row>
       <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
         {message}
-        <Form ref="loginForm" type={User} options={options} values={this.state.user} />
-        <Button bsStyle="primary" onClick={this.handleClick.bind(this)}>Sign In</Button>
-        <Link to="reset" style={{marginLeft: 10}}>Lost password?</Link>
+        <Form ref="resetForm" type={User} options={options} values={this.state.user} />
+        <Button bsStyle="primary" onClick={this.handleClick.bind(this)}>Send Reset Email</Button>
+        <Link to="login" style={{marginLeft: 10}}>Sign in</Link>
       </Col>
     </Row>
   }
 }
 
-LoginPage.contextTypes = {
+ResetPage.contextTypes = {
   router: React.PropTypes.func
 }
 
-export default LoginPage
+export default ResetPage
