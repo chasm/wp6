@@ -14,7 +14,8 @@ const common = {
   },
   output: {
     path: path.resolve(ROOT_PATH, "build"),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: "http://localhost:3000/assets/"
   },
   lessLoader: {
     lessPlugins: [
@@ -43,11 +44,11 @@ if (TARGET === "build") {
         { test: /\.(png|jpg|jpeg|gif|svg)$/, loader: "url?limit=25000" },
         {
           test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-          loader: "url-loader?limit=10000&mimetype=application/font-woff"
+          loader: "url-loader?limit=1000&mimetype=application/font-woff"
         },
         {
           test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-          loader: "url?limit=10000&mimetype=application/octet-stream"
+          loader: "url?limit=1000&mimetype=application/octet-stream"
         },
         { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
         {

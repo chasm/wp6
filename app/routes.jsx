@@ -10,9 +10,8 @@ import LogoutPage from "./components/pages/logout"
 import AboutPage from "./components/pages/about"
 import BooksPage from "./components/pages/books"
 import SignUpPage from "./components/pages/signup"
-import  ResetPage from "./components/pages/reset"
-import  ResponsePage from "./components/pages/response"
-import  ResetFormPage from "./components/pages/resetform"
+import ResponsePage from "./components/pages/response"
+import ResetFormPage from "./components/pages/resetform"
 
 import requireAuth from "./auth"
 
@@ -25,7 +24,6 @@ let routes = (
     <Route name="about" handler={AboutPage} />
     <Route name="books" handler={requireAuth(BooksPage)} />
     <Route name="signup" handler={SignUpPage} />
-    <Route name="reset" handler={ResetPage} />
     <Route name="response" handler={ResponsePage} />
     <Route name="reset/:id" handler={ResetFormPage} />
   </Route>

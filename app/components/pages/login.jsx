@@ -4,6 +4,8 @@ import { Link } from "react-router"
 
 import { Button, Col, Row, Alert } from "react-bootstrap"
 
+import PasswordField from "../widgets/password-field"
+
 import superagent from "superagent"
 
 import t from "tcomb-form"
@@ -20,8 +22,7 @@ let Form = t.form.Form
 
 let User = t.struct({
   email: t.Str,
-  password: t.Str,
-  showPassword: t.Bool
+  password: t.Str
 })
 
 let alertInstance = (
@@ -31,7 +32,6 @@ let alertInstance = (
 )
 
 class LoginPage extends Component {
-
 
   constructor (props) {
     super(props)
@@ -76,11 +76,7 @@ class LoginPage extends Component {
         password: {
           label: "Password",
           error: "You must enter a valid password.",
-          type: "password"
-        },
-        check: {
-          label: "Show Password",
-          type: "checkbox"
+          factory: PasswordField.bind(this)
         }
       },
       legend: "Please sign in"
