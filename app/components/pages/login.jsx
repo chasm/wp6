@@ -1,5 +1,7 @@
 import React, { Component } from "react"
 
+import { Link } from "react-router"
+
 import { Button, Col, Row, Alert } from "react-bootstrap"
 
 import superagent from "superagent"
@@ -8,9 +10,18 @@ import t from "tcomb-form"
 
 let Form = t.form.Form
 
+// let predicate = (user) => {
+//   if (user.showPassword === true) {
+//     return true
+//   } else {
+//     return false
+//   }
+// }
+
 let User = t.struct({
   email: t.Str,
-  password: t.Str
+  password: t.Str,
+  showPassword: t.Bool
 })
 
 let alertInstance = (
@@ -47,6 +58,12 @@ class LoginPage extends Component {
       })
   }
 
+  handleChange (event) {
+    let value = this.refs.loginForm.getValue()
+
+    console.log(value, "value")
+  }
+
   render () {
     let message = this.state.failed ? alertInstance : ""
 
@@ -60,6 +77,10 @@ class LoginPage extends Component {
           label: "Password",
           error: "You must enter a valid password.",
           type: "password"
+        },
+        check: {
+          label: "Show Password",
+          type: "checkbox"
         }
       },
       legend: "Please sign in"
@@ -68,8 +89,11 @@ class LoginPage extends Component {
     return <Row>
       <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
         {message}
-        <Form ref="loginForm" type={User} options={options} values={this.state.user} />
+        <Form ref="loginForm" type={User} options={options} value={this.state.user}
+          onChange={this.handleChange.bind(this)}
+        />
         <Button bsStyle="primary" onClick={this.handleClick.bind(this)}>Sign In</Button>
+        <Link to="/reset" style={{margin: 10}}>forgot password?</Link>
       </Col>
     </Row>
   }

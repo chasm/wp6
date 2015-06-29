@@ -267,3 +267,35 @@
 2015-06-26T22:54:19.894802000 0.208726s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
 2015-06-26T22:54:19.894807000 0.208731s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
 2015-06-26T22:54:20.598510000 0.912435s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-26T12:30:45.582819000 0.476329s notice: Running rethinkdb 2.0.2 (CLANG 6.1.0 (clang-602.0.53))...
+2015-06-26T12:30:45.588154000 0.481663s notice: Running on Darwin 14.0.0 x86_64
+2015-06-26T12:30:45.588214000 0.481720s notice: Loading data from directory /Users/Kehinde/Documents/wp6/rethinkdb_data
+2015-06-26T12:30:45.658689000 0.552196s info: Automatically using cache size of 100 MB
+2015-06-26T12:30:45.658700000 0.552206s warn: Cache size does not leave much memory for server and query overhead (available memory: 588 MB).
+2015-06-26T12:30:45.658708000 0.552215s warn: Cache size is very low and may impact performance.
+2015-06-26T12:30:45.660790000 0.554296s notice: Listening for intracluster connections on port 29015
+2015-06-26T12:30:45.666484000 0.559991s notice: Listening for client driver connections on port 28015
+2015-06-26T12:30:45.666637000 0.560143s notice: Listening for administrative HTTP connections on port 8080
+2015-06-26T12:30:45.666639000 0.560145s notice: Listening on addresses: 127.0.0.1, ::1
+2015-06-26T12:30:45.666644000 0.560151s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-06-26T12:30:45.666645000 0.560151s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
+2015-06-26T12:30:46.630578000 1.524085s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-26T12:30:51.514249000 6.407533s notice: Server got SIGINT from pid 316, uid 501; shutting down...
+2015-06-26T12:30:51.514406000 6.407689s notice: Shutting down client connections...
+2015-06-26T12:30:51.514506000 6.407789s notice: All client connections closed.
+2015-06-26T12:30:51.514516000 6.407799s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-06-26T12:30:51.533876000 6.427159s notice: Storage engine shut down.
+2015-06-26T12:30:53.352007000 0.006873s notice: Running rethinkdb 2.0.2 (CLANG 6.1.0 (clang-602.0.53))...
+2015-06-26T12:30:53.360206000 0.015066s notice: Running on Darwin 14.0.0 x86_64
+2015-06-26T12:30:53.360368000 0.015226s notice: Loading data from directory /Users/Kehinde/Documents/wp6/rethinkdb_data
+2015-06-26T12:30:53.425261000 0.080119s info: Automatically using cache size of 100 MB
+2015-06-26T12:30:53.425292000 0.080150s warn: Cache size does not leave much memory for server and query overhead (available memory: 637 MB).
+2015-06-26T12:30:53.425297000 0.080155s warn: Cache size is very low and may impact performance.
+2015-06-26T12:30:53.428307000 0.083165s notice: Listening for intracluster connections on port 29015
+2015-06-26T12:30:53.431468000 0.086326s notice: Listening for client driver connections on port 28015
+2015-06-26T12:30:53.431690000 0.086547s notice: Listening for administrative HTTP connections on port 8080
+2015-06-26T12:30:53.431694000 0.086551s notice: Listening on addresses: 127.0.0.1, ::1
+2015-06-26T12:30:53.431698000 0.086555s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-06-26T12:30:53.431702000 0.086559s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
+2015-06-26T12:30:53.940296000 0.595154s notice: A newer version of the RethinkDB server is available: 2.0.3. You can read the changelog at <https://github.com/rethinkdb/rethinkdb/releases>.
+2015-06-28T18:06:53.326122000 86400.165602s warn: Problem when checking for new versions of RethinkDB: HTTP request to update.rethinkdb.com failed.
