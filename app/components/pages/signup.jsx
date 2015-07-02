@@ -56,8 +56,6 @@ class SignUpPage extends Component {
   save (event) {
     let value = this.refs.form.getValue()
 
-    console.log("value", value)
-
     if (value && !value.nobot) {
       this.setState({
         signup: value

@@ -16,38 +16,46 @@ let User = t.struct({
 
 let alertInstance = (
   <Alert bsStyle='warning'>
-    <strong>Crap!</strong> Incorrect email or password.
+    This email does not exist.
   </Alert>
 )
 
-class ResetPage extends Component {
+let setResponse = (<p> A mail has been sent to this address, please follow the link to reset your password</p>)
 
+class ResetPage extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      user: {}
+      user: {
+        email: "kehinde.oni@aiesec.net"
+      }
     }
   }
 
   handleClick (event) {
-    let value = this.refs.loginForm.getValue()
+    let value = this.refs.resetForm.getValue()
+    console.log(value, "this is me")
+
+    this.setState({sentMail: true})
 
     superagent
-      .post("/reset")
+      .post("/api/reset")
       .send(value)
       .set("Accept", "application/json")
       .end((err, res) => {
         if (err) {
           this.setState({ failed: true, email: value.email })
         } else {
-          localStorage.user = res.text
-          this.context.router.transitionTo("home")
+          this.setState({ sent: true})
+          localStorage.email = value.email
+          this.context.router.transitionTo("response")
         }
       })
   }
 
   render () {
+    let response = this.state.sent ? setResponse : ""
     let message = this.state.failed ? alertInstance : ""
 
     let options = {
@@ -57,18 +65,18 @@ class ResetPage extends Component {
           error: "You must enter a valid email address."
         }
       },
-      legend: "Reset your password"
+      legend: "Enter your email"
     }
 
     return <Row>
       <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
         {message}
-        <Form ref="resetForm" type={User} options={options} values={this.state.user} />
-        <Button bsStyle="primary" onClick={this.handleClick.bind(this)}>Send Reset Email</Button>
-        <Link to="login" style={{marginLeft: 10}}>Sign in</Link>
+        <Form ref="resetForm" type={User} options={options} value={this.state.user} />
+        <Button bsStyle="primary" onClick={this.handleClick.bind(this)}>Reset</Button>
       </Col>
     </Row>
   }
+
 }
 
 ResetPage.contextTypes = {

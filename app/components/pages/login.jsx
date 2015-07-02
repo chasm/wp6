@@ -12,14 +12,6 @@ import t from "tcomb-form"
 
 let Form = t.form.Form
 
-// let predicate = (user) => {
-//   if (user.showPassword === true) {
-//     return true
-//   } else {
-//     return false
-//   }
-// }
-
 let User = t.struct({
   email: t.Str,
   password: t.Str
@@ -58,11 +50,11 @@ class LoginPage extends Component {
       })
   }
 
-  handleChange (event) {
-    let value = this.refs.loginForm.getValue()
+  // handleChange (event) {
+  //   let value = this.refs.loginForm.getValue()
 
-    console.log(value, "value")
-  }
+  //   console.log(value, "value")
+  // }
 
   render () {
     let message = this.state.failed ? alertInstance : ""
@@ -75,8 +67,8 @@ class LoginPage extends Component {
         },
         password: {
           label: "Password",
-          error: "You must enter a valid password.",
-          factory: PasswordField.bind(this)
+          error: "You must enter a valid password."
+          // factory: PasswordField.bind(this)
         }
       },
       legend: "Please sign in"
@@ -85,9 +77,7 @@ class LoginPage extends Component {
     return <Row>
       <Col xs={10} xsOffset={1} sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
         {message}
-        <Form ref="loginForm" type={User} options={options} value={this.state.user}
-          onChange={this.handleChange.bind(this)}
-        />
+        <Form ref="loginForm" type={User} options={options} value={this.state.user} />
         <Button bsStyle="primary" onClick={this.handleClick.bind(this)}>Sign In</Button>
         <Link to="reset" style={{marginLeft: 10}}>Lost password?</Link>
       </Col>

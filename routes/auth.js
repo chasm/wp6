@@ -2,6 +2,8 @@ const passport   = require("koa-passport")
 const postmark   = require("postmark")
 const client     = new postmark.Client("a745fc7b-86cf-4288-a205-e1a004d08d25")
 const slugid     = require("slugid")
+const moment     = require("moment")
+const bcrypt     = require("bcryptjs")
 
 const r = require("rethinkdbdash")()
 
@@ -61,27 +63,26 @@ let reset = function *() {
 
     let userId = result[ 0 ].id
     let user = {
-      resetCode: id
+      resetCode: id,
+      resetExpiresAt: moment().add(2, "hours").toDate()
     }
 
-    let result1 = yield r.db("quoth").table("users").get(userId).update(user).run()
+    let updated = yield r.db("quoth").table("users").get(userId).update(user).run()
 
-    if(result1.replaced === 1 ) {
-
+    if(updated.replaced === 1 ) {
       let sender = "oni.omowunmi@andela.co"
       let subject = "[Quoth] Reset your credentials"
       let body = "Someone requested to reset your Quoth credentials. To change them " +
         "please follow this link: http://localhost:3000/reset/" + id
+
       let receiver = email
 
       try {
+        let thunk = yield getPostmarkThunk(sender, receiver, subject, body)
 
-        let result2 = yield getPostmarkThunk(sender, receiver, subject, body)
-
-        if (result2) {
-
+        if (thunk) {
           this.type = "application/json"
-          this.body = JSON.stringify(result2)
+          this.body = JSON.stringify(thunk)
         } else {
           this.status = 400
         }
@@ -96,13 +97,45 @@ let reset = function *() {
   }
 }
 
-let resetForm = function *() {
-  this.type = "application/json"
-  this.body = JSON.stringify("Yeahhhhh")
-}
+let updatePassword = function *(next) {
+  let fields = this.request.body.fields
 
-let updatePassword = function *() {
+  let userCode = this.params.id
+  let password = bcrypt.hashSync(fields.password, 12)
 
+  let result = yield r.db("quoth").table("users").filter({ resetCode: userCode}).run()
+
+  if (result.length > 0) {
+
+    let userId = result[ 0 ].id
+
+    let userPwd = {
+      digest: password
+    }
+
+    let updated = yield r.db("quoth").table("users").get(userId).update(userPwd).run()
+
+    if(updated.replaced === 1 ) {
+      r.db("quoth").table("users").get(userId)
+        .replace(r.row.without("resetCode").without("resetExpiresAt")).run()
+
+      let ctx = this
+
+      ctx.request.body.username = result[ 0 ].email
+      ctx.request.body.password = password
+
+      yield* passport.authenticate("local", function *(err, user, info) {
+        if (err) { throw err }
+
+        console.log(user, "login user", ctx.login )
+        if (user !== false) { yield ctx.login(user) }
+
+        ctx.redirect("/")
+
+      }).call(this, next)
+    }
+
+  }
 }
 
 export default function (router) {
@@ -110,7 +143,6 @@ export default function (router) {
     router.post("/login", login)
     router.delete("/logout", logout)
     router.post("/reset", reset)
-    router.get("/reset/:id", resetForm)
     router.put("/reset/:id", updatePassword)
 
     yield next

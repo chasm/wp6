@@ -80,7 +80,7 @@ class PasswordField extends Component {
 
     this.setState({
       inputType: status ? "text" : "password",
-      inputIcon: status ? "eye-closed" : "eye-open"
+      inputIcon: status ? "eye-close" : "eye-open"
     })
   }
 

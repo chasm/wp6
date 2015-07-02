@@ -73,6 +73,7 @@
     "koa-session": "^3.2.0",
     "koa-static": "^1.4.9",
     "lodash": "^3.9.3",
+    "moment": "^2.10.3",
     "passport-local": "^1.0.0",
     "postmark": "^1.0.0",
     "react": "^0.13.3",
