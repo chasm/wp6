@@ -14,3 +14,28 @@
 2015-06-30T00:30:43.064258000 2784.323606s notice: All client connections closed.
 2015-06-30T00:30:43.064303000 2784.323651s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
 2015-06-30T00:30:43.097747000 2784.357096s notice: Storage engine shut down.
+2015-07-01T23:48:13.048793000 0.004318s notice: Running rethinkdb 2.0.3 (CLANG 6.1.0 (clang-602.0.53))...
+2015-07-01T23:48:13.053817000 0.009341s notice: Running on Darwin 14.4.0 x86_64
+2015-07-01T23:48:13.054017000 0.009539s notice: Loading data from directory /Users/aries/Workspace/wp6/rethinkdb_data
+2015-07-01T23:48:13.120802000 0.076325s info: Automatically using cache size of 523 MB
+2015-07-01T23:48:13.122087000 0.077609s notice: Listening for intracluster connections on port 29015
+2015-07-01T23:48:13.132566000 0.088088s notice: Listening for client driver connections on port 28015
+2015-07-01T23:48:13.132710000 0.088232s notice: Listening for administrative HTTP connections on port 8080
+2015-07-01T23:48:13.132713000 0.088235s notice: Listening on addresses: 127.0.0.1, ::1
+2015-07-01T23:48:13.132717000 0.088239s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-07-01T23:48:13.132721000 0.088243s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8
+2015-07-02T12:53:01.026582000 25751.394226s notice: Server got SIGINT from pid 2416, uid 501; shutting down...
+2015-07-02T12:53:01.027164000 25751.394808s notice: Shutting down client connections...
+2015-07-02T12:53:01.027536000 25751.395180s notice: All client connections closed.
+2015-07-02T12:53:01.027539000 25751.395183s notice: Shutting down storage engine... (This may take a while if you had a lot of unflushed data in the writeback cache.)
+2015-07-02T12:53:01.050801000 25751.418445s notice: Storage engine shut down.
+2015-07-02T23:43:10.360361000 0.006780s notice: Running rethinkdb 2.0.3 (CLANG 6.1.0 (clang-602.0.53))...
+2015-07-02T23:43:10.367713000 0.014127s notice: Running on Darwin 14.4.0 x86_64
+2015-07-02T23:43:10.367951000 0.014364s notice: Loading data from directory /Users/aries/Workspace/wp6/rethinkdb_data
+2015-07-02T23:43:10.446399000 0.092812s info: Automatically using cache size of 479 MB
+2015-07-02T23:43:10.447698000 0.094111s notice: Listening for intracluster connections on port 29015
+2015-07-02T23:43:10.457069000 0.103482s notice: Listening for client driver connections on port 28015
+2015-07-02T23:43:10.458463000 0.104876s notice: Listening for administrative HTTP connections on port 8080
+2015-07-02T23:43:10.458468000 0.104880s notice: Listening on addresses: 127.0.0.1, ::1
+2015-07-02T23:43:10.458478000 0.104891s notice: To fully expose RethinkDB on the network, bind to all addresses by running rethinkdb with the `--bind all` command line option.
+2015-07-02T23:43:10.458480000 0.104893s notice: Server ready, "aries_local_iiw" e24f1138-d7a9-4550-9d23-457c79aae4a8

@@ -1,4 +1,4 @@
-const bcrypt = require("bcryptjs")
+const bcrypt     = require("bcryptjs")
 
 const t = require("tcomb-form")
 const validate = t.validate
