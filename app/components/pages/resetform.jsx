@@ -45,8 +45,8 @@ class ResetFormPage extends Component {
         if (err) {
           throw err
         } else {
-          console.log(res.text, "response")
-          // this.context.router.transitionTo("home")
+          localStorage.user = res.text
+          this.context.router.transitionTo("home")
         }
       })
   }
@@ -74,8 +74,8 @@ class ResetFormPage extends Component {
   }
 }
 
-// ResetFormPage.contextTypes = {
-//   router: React.PropTypes.func
-// }
+ResetFormPage.contextTypes = {
+  router: React.PropTypes.func
+}
 
 export default ResetFormPage

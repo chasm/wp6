@@ -103,38 +103,49 @@ let updatePassword = function *(next) {
   let userCode = this.params.id
   let password = bcrypt.hashSync(fields.password, 12)
 
-  let result = yield r.db("quoth").table("users").filter({ resetCode: userCode}).run()
+  let rows = yield r.db("quoth").table("users").filter({ resetCode: userCode}).run()
 
-  if (result.length > 0) {
+  if (rows.length > 0) {
 
-    let userId = result[ 0 ].id
+    let user = rows[ 0 ]
 
     let userPwd = {
       digest: password
     }
 
-    let updated = yield r.db("quoth").table("users").get(userId).update(userPwd).run()
+    let updated = yield r.db("quoth").table("users").get(user.id).update(userPwd).run()
 
-    if(updated.replaced === 1 ) {
-      r.db("quoth").table("users").get(userId)
+    if (updated.replaced === 1 ) {
+      yield r.db("quoth").table("users").get(user.id)
         .replace(r.row.without("resetCode").without("resetExpiresAt")).run()
 
       let ctx = this
 
-      ctx.request.body.username = result[ 0 ].email
-      ctx.request.body.password = password
+      ctx.request.body.username = user.email
+      ctx.request.body.password = fields.password
+
+      console.log(ctx.request.body.username, "userdetail", ctx.request.body.password)
 
       yield* passport.authenticate("local", function *(err, user, info) {
         if (err) { throw err }
 
-        console.log(user, "login user", ctx.login )
+        console.log("user", user)
+
         if (user !== false) { yield ctx.login(user) }
 
-        ctx.redirect("/")
+        let out = {
+          email: user.email,
+          fullname: user.fullname,
+          id: user.id,
+          locale: user.locale,
+          username: user.username
+        }
+
+        ctx.type = "application/json"
+        ctx.body = JSON.stringify(out)
 
       }).call(this, next)
     }
-
   }
 }
 
